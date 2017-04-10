@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <img src="https://cdn.pbrd.co/images/LpSCt8rDE.png" alt="Shopping List" height="124" width="124">
+      <h1>Shopping List Version 4.0</h1>
+      <p id="date"></p>
+      <script src="dateScript.js"></script>
+      <div id="clear"></div>
+      <hr>
+      Name: <input type="text" id="item" name="item" /><br><br>
+      Cost: &nbsp;&nbsp;<input type="text" id="cost" name="cost" />
+      <input class="button" name="submit" type="button" value="Add Item" onclick="addShoppinglist(item.value, cost.value)" />
+      <hr>
+      <h3 id="MyListHeader"></h3>
+      <p id="MyList"></p>
+      <hr>
+      <h3 id="MyCartHeader"></h3>
+      <p id="MyCart"></p>
+      <hr>
+        <footer>
+          Maintain a list of items to shop for and track them as they are purchased.
+        </footer>
+    </div>
+
+  </body>
+
+</html>
