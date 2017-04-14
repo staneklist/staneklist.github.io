@@ -18,8 +18,10 @@
       <script src="dateScript.js"></script>
       <div id="clear"></div>
       <hr>
-      Name: <input type="text" id="item" name="item" /><br><br>
-      <input class="button" name="submit" type="button" value="Add Item" onclick="addShoppinglist(item.value)" />
+      <label>Item: </label><input type="text" id="item" name="item"
+        onkeydown = "if (event.keyCode == 13)
+        document.getElementById('btnSubmit').click()" maxlength="20" placeholder="   20 characters max"/><br><br>
+      <input id="btnSubmit" class="button" name="submit" type="button" value="Add Item" onclick="addShoppinglist(item.value)" />
       <hr>
       <h3 id="MyListHeader"></h3>
       <p id="MyList"></p>
@@ -28,7 +30,7 @@
       <p id="MyCart"></p>
       <hr>
         <footer>
-          Maintain a list of items to shop for and track them as they are purchased.
+          <input class="button" name="about" type="button" value="About" onclick="about()" />
         </footer>
     </div>
 

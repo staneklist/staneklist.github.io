@@ -8,11 +8,15 @@
 //v 4.0 save cookie
 //v 4.0 read cookie on load and display
 window.onload = function() {
+  about();
   populateshoppinglistonload();
    displayShoppinglists();
     clearFocus();
 };
 
+function about(){
+  alert("This program is used to create and manage shopping lists.\n\n It will also track items as they are purchased.")
+}
 
 //v 4.0 read cookie and return
 function readCookie(name) {
@@ -84,11 +88,13 @@ var MyItems = {
   price:""
 };
 
-//v 3.1 addtocart empty array
-var addtocart = [];
+
 
 //v 2.1: change shoppinglist array empty array
 var shoppinglist = [];
+
+//v 3.1 addtocart empty array
+var addtocart = [];
 
 //display date at top of page
 displayDate();
