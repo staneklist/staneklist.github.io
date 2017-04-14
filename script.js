@@ -10,6 +10,7 @@
 window.onload = function() {
   populateshoppinglistonload();
    displayShoppinglists();
+    clearFocus();
 };
 
 
@@ -27,17 +28,17 @@ function readCookie(name) {
 
 
 //v. 4.0remove and format cookie
-function remove_unwanted(str) {  
-    
-  if ((str===null) || (str===''))  
-       return false;  
- else  
-   str = str.toString();  
+function remove_unwanted(str) {
+
+  if ((str===null) || (str===''))
+       return false;
+ else
+   str = str.toString();
    str = str.replace(/%20/g, "");
-   str = str.replace(/%24/g, "$"); 
+   str = str.replace(/%24/g, "$");
    str = str.replace(/%7C/g, " | ");
-  return str.replace(/[^\x20-\x7E]/g, '');  
-}  
+  return str.replace(/[^\x20-\x7E]/g, '');
+}
 
 
 //v 4.0 save cookie
@@ -77,7 +78,7 @@ function populateshoppinglistonload()
   //load cookie into array
   var y = readCookie('staneklist');
   //remove unwanted chars and format
-  y = remove_unwanted(y); 
+  y = remove_unwanted(y);
   //spit array by comma %2C
   y = y.split('%2C');
   if (y) {
@@ -90,8 +91,9 @@ function populateshoppinglistonload()
 
 //v 3.0 Create Objects for Shoppinglist
 var MyItems = {
-  name:"",
-  price:""
+  name:""
+//v 4.0 remove price
+  //price:""
 };
 
 //v 3.1 addtocart empty array
@@ -111,22 +113,22 @@ function addtoshopcart(item, num) {
     addtocart.push(item);
   //display shoppinglist
   displayShoppinglists();
-  //v3.1 display displayShoppingCart() 
-  displayShoppingCart(); 
+  //v3.1 display displayShoppingCart()
+  displayShoppingCart();
   //Clear
   clearFocus();
   //v 4.0 save cookie
   savecookie();
 }
 
-//v3.1 
+//v3.1
 function addbacktoshoppinglist(item,num) {
   //push to deleteShoppingCar
    deleteShoppingCart(num);
   shoppinglist.push(item);
   //display shoppinglist
   displayShoppinglists();
-  //v3.1 display displayShoppingCart() 
+  //v3.1 display displayShoppingCart()
   displayShoppingCart();
   clearFocus();
   //v 4.0 save cookie
@@ -134,7 +136,7 @@ function addbacktoshoppinglist(item,num) {
 }
 
 //My Shopping List:
-function displayShoppinglists() 
+function displayShoppinglists()
 {
   var TheList = "";
   var arrayLength = shoppinglist.length;
@@ -147,16 +149,14 @@ function displayShoppinglists()
   {
     document.getElementById("MyListHeader").innerHTML = 'Shopping List';
   }
-  for (var i = 0; i < arrayLength; i++) 
+  for (var i = 0; i < arrayLength; i++)
   {
     var btndelete =  ' <input class="button" name="delete" type="button" value="Remove Item" onclick="deleteShoppinglists(' + i + ')" />';
-    //3.2 - Remove edit button
-    //var btnupdate =  ' <input class="button" name="edit" type="button" value="Edit Item" onclick="changeShoppinglist(' + i + ')" />';
     var arrays = shoppinglist[i];
     arrays = "'"+arrays+"'";
     //3.2 - Add button changed to checkbox
-    var chkaddcart =  ' <input name="add" type="checkbox" value="Add" onclick="addtoshopcart('+arrays+','+ i +')" />Add';
-    
+    var chkaddcart =  ' <input name="add" type="checkbox" value="Add" onclick="addtoshopcart('+arrays+','+ i +')" />';
+
     TheList = TheList + shoppinglist[i] + btndelete + ' ' + chkaddcart + '<br>';
   }
   document.getElementById("MyList").innerHTML = TheList;
@@ -169,12 +169,12 @@ function displayShoppingCart() {
   {
     TheList = TheList + '';
     document.getElementById("MyCartHeader").innerHTML = '';
-  } 
+  }
   else
   {
     document.getElementById("MyCartHeader").innerHTML = 'Shopping Cart';
   }
-  for (var i = 0; i < arrayLength; i++) 
+  for (var i = 0; i < arrayLength; i++)
   {
     var btndelete =  ' <input class="button" name="delete" type="button" value="Remove Item" onclick="deleteShoppingCart(' + i + ')" />';
     //3.2 - Remove edit button
@@ -182,7 +182,7 @@ function displayShoppingCart() {
     var arrays = addtocart[i];
     arrays = "'"+arrays+"'";
     //3.2 - Add button changed to checkbox
-    var chkaddlist =  ' <input name="add" type="checkbox" value="Add" onclick="addbacktoshoppinglist('+arrays+',' + i + ')" checked/>Add';
+    var chkaddlist =  ' <input name="add" type="checkbox" value="Add" onclick="addbacktoshoppinglist('+arrays+',' + i + ')" checked/>';
     TheList = TheList + addtocart[i] + btndelete + ' ' + chkaddlist + '<br>';
   }
 
@@ -191,32 +191,23 @@ function displayShoppingCart() {
 
 // for adding a shopping list item with argument
 //v 3.0 Update function addShoppinglist by adding objects
-function addShoppinglist(item, cost) {
+function addShoppinglist(item) {
   //v 3.0 declare variable for groc string
-  var groc="";
+  //var groc="";
   //v 3.0 v 3.0 declare variable for loop count
-  var count=0;
+  //var count=0;
   //v 3.0 edit value for MyItems.name
-  MyItems.name=item;
-  //v 3.0 edit value for MyItems.cost
-  MyItems.price=cost;
-  //v 3.0 for loop through object propterties and 
-  for (var x in MyItems){
-    if (count===1){
-      groc += "$";
-    }
-    //add to groc string from object array item
-    groc += MyItems[x];
-    if (count===0){
-      //v 4.0 replace comma with |
-      groc += "|";
-      //groc += ", ";
-    }
-    //increment count by 1
-   count++;
-  }
+  //MyItems.name=item;
+  //v.4.0 remove cost
+  //MyItems.price=cost;
+  //v 3.0 for loop through object propterties and
+  //for (var x in MyItems){
+  //    groc += MyItems[x];
+      //increment count by 1
+  //    count++;
+  //}
   //push to shoppinglist
-  shoppinglist.push(groc);
+  shoppinglist.push(item);
   //display shoppinglist
   displayShoppinglists();
   //v 2.1: call function 'clearFocus'
@@ -229,12 +220,12 @@ function addShoppinglist(item, cost) {
 function clearFocus()
 {
   //v 2.1: clear inputbox value out by id
-  //v 2.1: http://stackoverflow.com/questions/4135818/how-to-clear-a-textbox-using-javascript 
+  //v 2.1: http://stackoverflow.com/questions/4135818/how-to-clear-a-textbox-using-javascript
   document.getElementById("item").value = "";
   //v 3.0 clear cost field
   document.getElementById("cost").value = "";
   //v 2.1: set focus on inputbox after text is cleared
-  //v 2.1: http://stackoverflow.com/questions/17500704/javascript-set-focus-to-html-form-element 
+  //v 2.1: http://stackoverflow.com/questions/17500704/javascript-set-focus-to-html-form-element
   document.getElementById("item").focus();
 }
 
@@ -256,45 +247,3 @@ function deleteShoppingCart(position) {
     //v 4.0 save cookie
   savecookie();
 }
-
-
-
-
-
-
-
-
-
-
-
-//3.2 - Removed Edit buttons
-//function changeShoppinglist(position) {
-//  document.getElementById("MyList").innerHTML = shoppinglist[position];
-//  var arrays = shoppinglist[position];
-//  arrays = arrays.split(",");
-//  var e1 = arrays[0];
-//  var e2 = arrays[1];
-//  var ReplacedAmount = e2.replace(/\$/g,'');
-//  var eitem = prompt("Please enter new item", e1);
-//  var ecost = prompt("Please enter your name", ReplacedAmount);
-//  shoppinglist[position] = eitem + "," + '$' + ecost;
-//  displayShoppinglists();
-//  displayShoppingCart(); 
-//}
-
-//v3.2 - Removed Edit buttons
-//function changeShoppingCart(position) {
-//  document.getElementById("MyCart").innerHTML = shoppinglist[position];
-//  var arrays = addtocart[position];
-//  arrays = arrays.split(",");
-//    var e1 = arrays[0];
-//   var e2 = arrays[1];
-// var ReplacedAmount = e2.replace(/\$/g,'');
-//  var eitem = prompt("Please enter new item", e1);
-//  var ecost = prompt("Please enter your name", ReplacedAmount);
-//  addtocart[position] = eitem + "," + '$' + ecost;
-//  displayShoppinglists();
-//  displayShoppingCart() 
-//}
-
-

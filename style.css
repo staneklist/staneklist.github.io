@@ -1,4 +1,4 @@
-body 
+body
 {
   background-color: #d8d8d8;
   font-family: Verdana, sans-serif;
@@ -31,7 +31,7 @@ img {
 }
 
 #wrapper {
-  width: 80%;
+  width: 350px;
   padding: 25px;
   margin: 20px auto;
   border: 1px solid #000000;
@@ -53,4 +53,3 @@ h3 {
 footer {
   text-align: center;
 }
-
