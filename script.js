@@ -1,8 +1,8 @@
 // Paul Stanek
 // Spring 2017
 // Web233 Javascript
-// Date: 4/9/2017
-// Week 12 Assignment
+// Date: 4/14/2017
+// Week 13 Assignment
 // Shopping List Version 4.0
 
 //v 4.0 save cookie
@@ -58,17 +58,6 @@ function delete_cookie(name) {
   document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
-//v 4.0 save cookie
-function savecookie()
-{
-  delete_cookie('staneklist');
-   var date = new Date();
-   //keeps for a year
-    date.setTime(date.getTime() + Number(365) * 3600 * 1000);
-   document.cookie = 'staneklist' + "=" + escape(shoppinglist.join(',')) + "; path=/;expires = " + date.toGMTString();
-}
-
-
 
 //v 4.0 populateshoppinglistonload()
 function populateshoppinglistonload()
@@ -91,9 +80,8 @@ function populateshoppinglistonload()
 
 //v 3.0 Create Objects for Shoppinglist
 var MyItems = {
-  name:""
-//v 4.0 remove price
-  //price:""
+  name:"",
+  price:""
 };
 
 //v 3.1 addtocart empty array
@@ -121,19 +109,30 @@ function addtoshopcart(item, num) {
   savecookie();
 }
 
-//v3.1
-function addbacktoshoppinglist(item,num) {
-  //push to deleteShoppingCar
-   deleteShoppingCart(num);
+// for adding a shopping list item with argument
+//v 3.0 Update function addShoppinglist by adding objects
+function addShoppinglist(item) {
+  //push to shoppinglist
   shoppinglist.push(item);
   //display shoppinglist
   displayShoppinglists();
   //v3.1 display displayShoppingCart()
   displayShoppingCart();
+  //v 2.1: call function 'clearFocus'
   clearFocus();
   //v 4.0 save cookie
   savecookie();
 }
+
+//v 2.1 add function 'clearFocus'
+function clearFocus()
+{
+  document.getElementById("item").value = "";
+  //v 4.0 cost field removed
+  //document.getElementById("cost").value = "";
+  document.getElementById("item").focus();
+}
+
 
 //My Shopping List:
 function displayShoppinglists()
@@ -189,45 +188,21 @@ function displayShoppingCart() {
   document.getElementById("MyCart").innerHTML = TheList;
 }
 
-// for adding a shopping list item with argument
-//v 3.0 Update function addShoppinglist by adding objects
-function addShoppinglist(item) {
-  //v 3.0 declare variable for groc string
-  //var groc="";
-  //v 3.0 v 3.0 declare variable for loop count
-  //var count=0;
-  //v 3.0 edit value for MyItems.name
-  //MyItems.name=item;
-  //v.4.0 remove cost
-  //MyItems.price=cost;
-  //v 3.0 for loop through object propterties and
-  //for (var x in MyItems){
-  //    groc += MyItems[x];
-      //increment count by 1
-  //    count++;
-  //}
-  //push to shoppinglist
+//v3.1
+function addbacktoshoppinglist(item,num) {
+  //push to deleteShoppingCar
+   deleteShoppingCart(num);
   shoppinglist.push(item);
   //display shoppinglist
   displayShoppinglists();
-  //v 2.1: call function 'clearFocus'
+  //v3.1 display displayShoppingCart()
+  displayShoppingCart();
   clearFocus();
   //v 4.0 save cookie
   savecookie();
 }
 
-//v 2.1 add function 'clearFocus'
-function clearFocus()
-{
-  //v 2.1: clear inputbox value out by id
-  //v 2.1: http://stackoverflow.com/questions/4135818/how-to-clear-a-textbox-using-javascript
-  document.getElementById("item").value = "";
-  //v 3.0 clear cost field
-  document.getElementById("cost").value = "";
-  //v 2.1: set focus on inputbox after text is cleared
-  //v 2.1: http://stackoverflow.com/questions/17500704/javascript-set-focus-to-html-form-element
-  document.getElementById("item").focus();
-}
+
 
 //function for deleting a Shoppinglists item
 //v3.1
