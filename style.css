@@ -6,7 +6,7 @@ body
 }
 input[type=button] {
     margin-left: 0px;
-    font-size: 120%;
+    font-size: 80%;
 }
 
 input[type=button]:hover{
@@ -37,6 +37,15 @@ img {
   border: 1px solid #000000;
   box-shadow: 5px 5px #000000;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table, td, th {
+  border: 1px solid black;
+}
+
 
 h1 {
   text-align: center;
