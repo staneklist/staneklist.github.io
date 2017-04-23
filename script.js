@@ -227,13 +227,13 @@ function displayShoppingCart() {
   if (arrayLength < 1)
   {
     TheList = TheList + '';
-    document.getElementById("MyCartHeader").innerHTML = '';
     document.getElementById("cartdiv").innerHTML = '';
+    document.getElementById("MyCartHeader").innerHTML = '';
   }
   else
   {
-    document.getElementById("MyCartHeader").innerHTML = 'Shopping Cart';
     document.getElementById("cartdiv").innerHTML = '<hr>';
+    document.getElementById("MyCartHeader").innerHTML = 'Shopping Cart';
   }
   for (var i = 0; i < arrayLength; i++)
   {
