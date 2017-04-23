@@ -203,7 +203,7 @@ function displayShoppinglists()
     //3.2 - Add button changed to checkbox
     var chkaddcart =  ' <input name="add" type="checkbox" value="Add" onclick="addtoshopcart('+arrays+','+ i +')" />';
 
-    TheList = TheList + '<tr><td>  ' + shoppinglist[i] + '  </td><td>  ' + chkaddcart + '  </td><td> ' + btndelete + '  </td></tr>';
+    TheList = TheList + '<tr><td>  ' + chkaddcart + '  </td><td>  ' + shoppinglist[i] + '  </td><td> ' + btndelete + '  </td></tr>';
   }
   document.getElementById("MyList").innerHTML = '<table id="shoppingTable"> ' + TheList + ' </table>';
 }
@@ -230,7 +230,7 @@ function displayShoppingCart() {
     //3.2 - Add button changed to checkbox
     var chkaddlist =  ' <input name="add" type="checkbox" value="Add" onclick="addbacktoshoppinglist('+arrays+',' + i + ')" checked/>';
     //TheList = TheList + addtocart[i] + btndelete + ' ' + chkaddlist + '<br>';
-    TheList = TheList + '<tr><td>  ' + addtocart[i] + '  </td><td>  ' + chkaddlist + '  </td><td> ' + btndelete + '  </td></tr>';
+    TheList = TheList + '<tr><td>  ' + chkaddlist + '  </td><td>  ' + addtocart[i] + '  </td><td> ' + btndelete + '  </td></tr>';
   }
 
   document.getElementById("MyCart").innerHTML = '<table id="cartTable"> ' + TheList + ' </table>';
