@@ -22,7 +22,7 @@ function get(name){
 function passlist()
 {
   var long_url = "https://staneklist.github.io/index.html?list="+ shoppinglist;
-  document.getElementById("sharelist").innerHTML = 'Share List:\n' + long_url;
+  //document.getElementById("sharelist").innerHTML = 'Share List:\n' + long_url;
   //copyToClipboard("sharelist");
   copyToClipboard(long_url);
   //alert("ShoppingList URL Copied");
