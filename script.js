@@ -198,7 +198,6 @@ function displayShoppinglists()
     TheList = ''
     document.getElementById("MyListHeader").innerHTML = '';
     document.getElementByID("sharebutton").innerHTML = '';
-    document.getElementByID("shareHR").innerHTML = '';
   }
   else
   {
