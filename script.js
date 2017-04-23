@@ -196,12 +196,14 @@ function displayShoppinglists()
   if (arrayLength < 1)
   {
     TheList = ''
+    document.getElementById("listdiv").innerHTML = '';
     document.getElementById("MyListHeader").innerHTML = '';
     document.getElementById("sharediv").innerHTML = '';
     document.getElementById("sharebutton").innerHTML = '';
   }
   else
   {
+    document.getElementById("listdiv").innerHTML = '<hr>';
     document.getElementById("MyListHeader").innerHTML = 'Shopping List';
     document.getElementById("sharediv").innerHTML = '<hr>';
     document.getElementById("sharebutton").innerHTML = btnsharelist;
@@ -226,10 +228,12 @@ function displayShoppingCart() {
   {
     TheList = TheList + '';
     document.getElementById("MyCartHeader").innerHTML = '';
+    document.getElementById("cartdiv").innerHTML = '';
   }
   else
   {
     document.getElementById("MyCartHeader").innerHTML = 'Shopping Cart';
+    document.getElementById("cartdiv").innerHTML = '<hr>';
   }
   for (var i = 0; i < arrayLength; i++)
   {
