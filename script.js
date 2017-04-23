@@ -1,17 +1,41 @@
 // Paul Stanek
 // Spring 2017
 // Web233 Javascript
-// Date: 4/14/2017
-// Week 13 Assignment
-// Shopping List Version 4.0
+// Date: 4/23/2017
+// Week 14 Assignment
+// Shopping List Version 4.1
+
+//v4.1 get values via URL
+function get(name){
+    var url = window.location.search;
+    var num = url.search(name);
+    var namel = name.length;
+    var frontlength = namel+num+1; //length of everything before the value
+    var front = url.substring(0, frontlength);
+    url = url.replace(front, "");
+    num = url.search("&");
+    if(num>=0) return url.substr(0,num);
+    if(num<0)  return url;
+}
+
+//v4.1 share function
+function shareList()
+{
+   passlist();
+}
+
+//v4.1 prompt message to copy URL
+function copyToClipboard(text) {
+  window.prompt("Your List to Share:  ", text);
+}
 
 //v 4.0 save cookie
 //v 4.0 read cookie on load and display
 window.onload = function() {
   about();
   populateshoppinglistonload();
-   displayShoppinglists();
-    clearFocus();
+  displayShoppinglists();
+  clearFocus();
 };
 
 function about(){
@@ -77,6 +101,18 @@ function populateshoppinglistonload()
   if (y) {
     shoppinglist = y;
    }
+
+   //v 4.1 get URL
+var geturllistvalue = get("list");
+  if (geturllistvalue) {
+     geturllistvalue = remove_unwanted(geturllistvalue);
+     geturllistvalue = geturllistvalue.split(',');
+    shoppinglist = geturllistvalue;
+  }
+  else if (y){
+  y = y.split('%2C');
+  shoppinglist = y;
+  }
 }
 
 
@@ -145,14 +181,17 @@ function displayShoppinglists()
 {
   var TheList = "";
   var arrayLength = shoppinglist.length;
+  var btnsharelist = '<input class="button" id="shareButton" name="shareButton" type="submit" value="Share Shopping List URL" onclick="shareList()" />';
   if (arrayLength < 1)
   {
     TheList = ''
     document.getElementById("MyListHeader").innerHTML = '';
+    document.getElementByID("sharebutton").innerHTML = '';
   }
   else
   {
     document.getElementById("MyListHeader").innerHTML = 'Shopping List';
+    document.getElementByID("sharebutton").innerHTML = btnsharelist;
   }
   for (var i = 0; i < arrayLength; i++)
   {
