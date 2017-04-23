@@ -197,11 +197,13 @@ function displayShoppinglists()
   {
     TheList = ''
     document.getElementById("MyListHeader").innerHTML = '';
+    document.getElementById("sharediv").innerHTML = '';
     document.getElementById("sharebutton").innerHTML = '';
   }
   else
   {
     document.getElementById("MyListHeader").innerHTML = 'Shopping List';
+    document.getElementById("sharediv").innerHTML = '<hr>';
     document.getElementById("sharebutton").innerHTML = btnsharelist;
   }
   for (var i = 0; i < arrayLength; i++)
