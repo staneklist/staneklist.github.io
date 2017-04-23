@@ -197,12 +197,12 @@ function displayShoppinglists()
   {
     TheList = ''
     document.getElementById("MyListHeader").innerHTML = '';
-    document.getElementByID("sharebutton").innerHTML = '';
+    document.getElementById("sharebutton").innerHTML = '';
   }
   else
   {
     document.getElementById("MyListHeader").innerHTML = 'Shopping List';
-    document.getElementByID("sharebutton").innerHTML = btnsharelist;
+    document.getElementById("sharebutton").innerHTML = btnsharelist;
   }
   for (var i = 0; i < arrayLength; i++)
   {
