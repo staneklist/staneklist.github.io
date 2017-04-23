@@ -187,11 +187,13 @@ function displayShoppinglists()
     TheList = ''
     document.getElementById("MyListHeader").innerHTML = '';
     document.getElementByID("sharebutton").innerHTML = '';
+    document.getElementByID("shareHR").innerHTML = '';
   }
   else
   {
     document.getElementById("MyListHeader").innerHTML = 'Shopping List';
     document.getElementByID("sharebutton").innerHTML = btnsharelist;
+    document.getElementByID("shareHR").innerHTML = '<hr>';
   }
   for (var i = 0; i < arrayLength; i++)
   {
