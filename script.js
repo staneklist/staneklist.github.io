@@ -18,8 +18,19 @@ function get(name){
     if(num<0)  return url;
 }
 
+//v4.1 paslist
+function passlist()
+{
+  var long_url = "https://staneklist.github.io/index.html?list="+ shoppinglist;
+  document.getElementById("sharelist").innerHTML = 'Share List:\n' + long_url;
+  //copyToClipboard("sharelist");
+  copyToClipboard(long_url);
+  //alert("ShoppingList URL Copied");
+
+}
+
 //v4.1 share function
-function shareList()
+function share()
 {
    passlist();
 }
@@ -181,7 +192,7 @@ function displayShoppinglists()
 {
   var TheList = "";
   var arrayLength = shoppinglist.length;
-  var btnsharelist = '<input class="button" id="shareButton" name="shareButton" type="submit" value="Share Shopping List URL" onclick="shareList()" />';
+  var btnsharelist = '<input class="button" id="shares" name="shares" type="submit" value="Share Shopping List URL" onclick="share()" />';
   if (arrayLength < 1)
   {
     TheList = ''
@@ -193,7 +204,6 @@ function displayShoppinglists()
   {
     document.getElementById("MyListHeader").innerHTML = 'Shopping List';
     document.getElementByID("sharebutton").innerHTML = btnsharelist;
-    document.getElementByID("shareHR").innerHTML = '<hr>';
   }
   for (var i = 0; i < arrayLength; i++)
   {
