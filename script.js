@@ -195,15 +195,13 @@ function displayShoppinglists()
   var btnsharelist = '<input class="button" id="shares" name="shares" type="submit" value="Share Shopping List URL" onclick="share()" />';
   if (arrayLength < 1)
   {
-    TheList = ''
-    document.getElementById("listdiv").innerHTML = '';
+    TheList = '';
     document.getElementById("MyListHeader").innerHTML = '';
     document.getElementById("sharediv").innerHTML = '';
     document.getElementById("sharebutton").innerHTML = '';
   }
   else
   {
-    document.getElementById("listdiv").innerHTML = '<hr>';
     document.getElementById("MyListHeader").innerHTML = 'Shopping List';
     document.getElementById("sharediv").innerHTML = '<hr>';
     document.getElementById("sharebutton").innerHTML = btnsharelist;
@@ -227,12 +225,10 @@ function displayShoppingCart() {
   if (arrayLength < 1)
   {
     TheList = TheList + '';
-    document.getElementById("cartdiv").innerHTML = '';
     document.getElementById("MyCartHeader").innerHTML = '';
   }
   else
   {
-    document.getElementById("cartdiv").innerHTML = '<hr>';
     document.getElementById("MyCartHeader").innerHTML = 'Shopping Cart';
   }
   for (var i = 0; i < arrayLength; i++)
