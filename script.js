@@ -67,7 +67,7 @@ window.onload = function() {
 };
 
 function about(){
-  alert("This app was developed in WEB-233 at Rock Valley College,\nSpring 2017.\n\nThis program is used to create and manage shopping lists.\n\n It will also track items as they are purchased.");
+  alert("This app was developed in WEB-233 at Rock Valley College,\nSpring 2017.\n\nThis program is used to create, manage, and share shopping lists.\n\n It will also track items as they are purchased.");
 }
 
 //v 4.0 read cookie and return
