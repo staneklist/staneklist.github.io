@@ -183,7 +183,9 @@ function addtoshopcart(item, num) {
 // for adding a shopping list item with argument
 //v 3.0 Update function addShoppinglist by adding objects
 function addShoppinglist(item) {
-  //push to shoppinglist
+  //push to shoppinglist if not empty
+  if (item != "")
+  {
   shoppinglist.push(item);
   //display shoppinglist
   displayShoppinglists();
@@ -193,6 +195,10 @@ function addShoppinglist(item) {
   clearFocus();
   //v 4.0 save cookie
   savecookie();
+  } else {
+  alert("Please enter an item description.");
+  clearfocus();
+  }
 }
 
 //v 2.1 add function 'clearFocus'
