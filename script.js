@@ -21,12 +21,29 @@ function get(name){
 //v4.1 paslist
 function passlist()
 {
+  var getshorturl=0;
+  var login = "pstan429";
+  var api_key = "R_725ae10b1fc24f23901e41516368f037";
   var long_url = "https://staneklist.github.io/index.html?list="+ shoppinglist;
-  //document.getElementById("sharelist").innerHTML = 'Share List:\n' + long_url;
-  //copyToClipboard("sharelist");
-  copyToClipboard(long_url);
-  //alert("ShoppingList URL Copied");
-
+  try{
+  $.getJSON(
+             "https://api-ssl.bitly.com/v3/shorten?callback=?",
+              {
+                "format": "json",
+                "apiKey": api_key,
+                "login": login,
+                "longUrl": long_url
+              },
+             function(response)
+             {
+                getshorturl = 1;
+                document.getElementById("sharelist").innerHTML = 'Share List:\n' + response.data.url;
+                copyToClipboard(response.data.url);
+             });
+  } catch(err) {
+    document.getElementById("sharelist").innerHTML = 'Share List:\n' + long_url;
+    copyToClipboard(long_url);
+}
 }
 
 //v4.1 share function
@@ -50,7 +67,7 @@ window.onload = function() {
 };
 
 function about(){
-  alert("This program is used to create and manage shopping lists.\n\n It will also track items as they are purchased.")
+  alert("This app was developed in WEB-233 at Rock Valley College,\nSpring 2017.\n\nThis program is used to create and manage shopping lists.\n\n It will also track items as they are purchased.");
 }
 
 //v 4.0 read cookie and return
@@ -73,7 +90,8 @@ function remove_unwanted(str) {
        return false;
  else
    str = str.toString();
-   str = str.replace(/%20/g, "");
+   str = str.replace(/%20/g, " ");
+   str = str.replace(/%21/g, "!");
    str = str.replace(/%24/g, "$");
    str = str.replace(/%7C/g, " | ");
   return str.replace(/[^\x20-\x7E]/g, '');

@@ -2,15 +2,20 @@
 <html>
 
   <head>
-    <title>Web 233 Shopping List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <title>Shopping List</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="Shopping Cart App Created in Web 233 - Rock Valley College">
+    <meta name="author" content="Paul Stanek">
   </head>
 
   <body>
+    <script src="script.js"></script>
     <div id="wrapper">
       <img src="https://cdn.pbrd.co/images/LpSCt8rDE.png" alt="Shopping List" height="62" width="62">
       <h1>Shopping List</h1>
@@ -30,10 +35,12 @@
       <p id="MyCart"></p>
 
       <div id="sharediv"></div>
+      <center><p id="sharelist"></p></center>
       <center><p id="sharebutton"></p></center>
       <hr>
         <footer>
           <input class="button" name="about" type="button" value="About" onclick="about()" />
+          <p>Student Project @<br><a href="http://rockvalleycollege.edu">Rock Valley College</a></p>
         </footer>
     </div>
 
