@@ -1,5 +1,10 @@
 body
 {
+  /*
+  Background image release to use free of charge from:
+  https://www.toptal.com/designers/subtlepatterns/retina-wood/
+  */
+  background-image: url(retina_wood_@2X.png);
   /*background-color: #d8d8d8;*/
   background-color: #53fc8b;
   font-family: Verdana, sans-serif;
@@ -14,8 +19,13 @@ input[type=button]:hover{
   background-color: #FFFFFF;
 }
 
-input[type=checkbox]:hover{
-  color: #FFFFFF;
+input[type=checkbox]
+{
+  height: 25px;
+}
+input:checked{
+  background-color: #000000;
+  height: 10px;
 }
 
 img {
@@ -53,6 +63,11 @@ a:active {
 }
 
 #wrapper {
+  /*
+  Background image release to use free of charge from:
+  https://www.toptal.com/designers/subtlepatterns/retina-wood/
+  */
+  background-image: url(retina_wood.png);
   width: 300px;
   padding: 25px;
   margin: 20px auto;
