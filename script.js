@@ -90,7 +90,7 @@ function remove_unwanted(str) {
        return false;
  else
    str = str.toString();
-   str = str.replace(/%20/g, "");
+   str = str.replace(/%20/g, " ");
    str = str.replace(/%21/g, "!");
    str = str.replace(/%24/g, "$");
    str = str.replace(/%7C/g, " | ");
@@ -126,22 +126,25 @@ function populateshoppinglistonload()
   //remove unwanted chars and format
   y = remove_unwanted(y);
   //spit array by comma %2C
-  y = y.split('%2C');
-  if (y) {
-    shoppinglist = y;
-   }
+  //y = y.split('%2C');
+  //if (y)
+  //  {
+  //  shoppinglist = y;
+  //  }
 
    //v 4.1 get URL
-var geturllistvalue = get("list");
-  if (geturllistvalue) {
-     geturllistvalue = remove_unwanted(geturllistvalue);
-     geturllistvalue = geturllistvalue.split(',');
-    shoppinglist = geturllistvalue;
-  }
-  else if (y){
-  y = y.split('%2C');
-  shoppinglist = y;
-  }
+   var geturllistvalue = get("list");
+   if (geturllistvalue)
+    {
+      geturllistvalue = remove_unwanted(geturllistvalue);
+      geturllistvalue = geturllistvalue.split(',');
+      shoppinglist = geturllistvalue;
+    }
+    else if (y)
+    {
+      y = y.split('%2C');
+      shoppinglist = y;
+    }
 }
 
 
