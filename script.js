@@ -90,7 +90,7 @@ function remove_unwanted(str) {
        return false;
  else
    str = str.toString();
-   str = str.replace(/%20/g, " ");
+   str = str.replace(/%20/g, "");
    str = str.replace(/%21/g, "!");
    str = str.replace(/%24/g, "$");
    str = str.replace(/%7C/g, " | ");
